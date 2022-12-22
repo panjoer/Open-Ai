@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<!-- saved from url=(0027)http://pan.buretuzi.online/ -->
+<html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths" lang="" style=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style data-merge-styles="true"></style>
+    <style data-merge-styles="true"></style>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Ai - Chat</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>#chatgpt-response { font-family: "宋体"; font-size: 20px; color: #0000FF; font-weight: bold; }</style>
+    <!-- favicon icon -->
+    <link rel="icon" href="http://pan.buretuzi.online/img/favicon.png">
+    <!-- All CSS Files Here -->
+    <link rel="stylesheet" href="./Ai - Chat_files/bootstrap.min.css">
+    <link rel="stylesheet" href="./Ai - Chat_files/et-line-fonts.css">
+    <link rel="stylesheet" href="./Ai - Chat_files/ionicons.min.css">
+    <link rel="stylesheet" href="./Ai - Chat_files/magnific-popup.css">
+    <link rel="stylesheet" href="./Ai - Chat_files/meanmenu.css">
+    <link rel="stylesheet" href="./Ai - Chat_files/global.css">
+    <link rel="stylesheet" href="./Ai - Chat_files/style.css">
+    <link rel="stylesheet" href="./Ai - Chat_files/responsive.css">
+    <script src="./Ai - Chat_files/hm.js.下载"></script><script src="./Ai - Chat_files/modernizr-2.8.3.min.js.下载"></script>
+    <script>
+	    async function callCHATGPT() {
+		var responseText1 = document.getElementById("chatgpt-response");
+		responseText1.innerHTML = ""
+        function printMessage(message) {
+          var responseText = document.getElementById("chatgpt-response");
+          var index = 0;
+
+          // 创建一个定时器，每隔一段时间打印一个字符
+          var interval = setInterval(function() {
+            responseText.innerHTML += message[index];
+            index++;
+
+            // 当打印完成时，清除定时器
+            if (index >= message.length) {
+              clearInterval(interval);
+            }
+          },
+          150); // 每隔50毫秒打印一个字符
+        }
+        var xhr = new XMLHttpRequest();
+        var url = "https://api.openai.com/v1/completions";
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.setRequestHeader("Authorization", "Bearer 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");
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            var json = JSON.parse(xhr.responseText);
+            var response = json.choices[0].text;
+
+            // 将CHATGPT的返回值输出到文本框
+            var responseText = document.getElementById("chatgpt-response");
+            var index = 0;
+
+            // 创建一个定时器，每隔一段时间打印一个字符
+            var interval = setInterval(function() {
+              responseText.innerHTML += response[index];
+              index++;
+
+              // 当打印完成时，清除定时器
+              if (index >= response.length) {
+                clearInterval(interval);
+              }
+            },
+            50); // 每隔50毫秒打印一个字符
+          }
+        };
+
+        var data = JSON.stringify({
+          "prompt": document.getElementById("chat-gpt-input").value,
+          "max_tokens": 4000,
+          "temperature": 0.5,
+          "top_p": 1,
+          "frequency_penalty": 0,
+          "presence_penalty": 0,
+          "model": "text-davinci-003"
+        });
+        console.log(data);
+        await printMessage('正在思考！');
+		await xhr.send(data);
+      }
+	</script>
+  <style type="text/css">#_copy{align-items:center;background:#4494d5;border-radius:3px;color:#fff;cursor:pointer;display:flex;font-size:13px;height:30px;justify-content:center;position:absolute;width:60px;z-index:1000}#select-tooltip,#sfModal,.modal-backdrop,div[id^=reader-helper]{display:none!important}.modal-open{overflow:auto!important}._sf_adjust_body{padding-right:0!important}.super_copy_btns_div{position:fixed;width:154px;left:10px;top:45%;background:#e7f1ff;border:2px solid #4595d5;font-weight:600;border-radius:2px;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;z-index:5000}.super_copy_btns_logo{width:100%;background:#4595d5;text-align:center;font-size:12px;color:#e7f1ff;line-height:30px;height:30px}.super_copy_btns_btn{display:block;width:128px;height:28px;background:#7f5711;border-radius:4px;color:#fff;font-size:12px;border:0;outline:0;margin:8px auto;font-weight:700;cursor:pointer;opacity:.9}.super_copy_btns_btn:hover{opacity:.8}.super_copy_btns_btn:active{opacity:1}</style><style>hcfy-result.__hcfy__result__loaded__.__hcfy__result__both__{border: 1px dotted}</style></head>
+	 
+  <body>
+    <div class="page-loader" style="display: none;">
+      <div class="loader">Loading...</div></div>
+    <header id="sticky-header" class="sticky">
+      <div class="header-area">
+        <div class="container sm-100">
+          <div class="row">
+            <div class="col-md-3 col-sm-2">
+              <div class="logo text-upper">
+                <h4>
+                  <a href="https://openai.panjoel.tk/index.html">OpenAi -GPT</a></h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="basic-portfolio-area ptb-10">
+      <div class="filter-menu text-center mb-40">
+        <h4>与Ai对话，请描述您的需求-支持中文、英语、日本语等</h4>
+	  </div>
+      <div class="call-to-action-area gray-bg ptb-60">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9 col-sm-9 col-xs-12">
+              <div class="form-group">
+                <label></label>
+                <textarea class="form-control" id="chat-gpt-input" placeholder="输入描述" rows="3" resize="none" style="width: 135%; margin: 0 auto; background-color: #f4f4f4; color: #333; border: 1px solid #ccc; border-radius: 12px;" spellcheck="false" data-ms-editor="true"></textarea>
+              <checker-extension class="_1KJtL" style="position:absolute;top:0px;left:0px;pointer-events:none;z-index:300;"><div style="position: absolute; top: 0px; left: 0px;"><div style="box-sizing: content-box; top: 20px; left: 15px; width: 942px; height: 74px; position: relative; pointer-events: none; overflow: hidden; border: 0px; border-radius: 0px; padding: 0px; margin: 0px;"><div style="top: 0px; left: 0px; position: absolute;"><div style="width: 1007px; height: 1670px;"></div></div><div class="xzmce_tip-button-warp" style="bottom: -3px;"><div class="xzmce_tip-button xzmce_count-button"><div class="xzmce_tip-button xzmce_metasota-button" style="width: 24px; height: 24px;"><div class="double-bounce2" style="opacity: 1;"> <img class="xzmce_tip-button_login_logo"></div></div></div></div></div></div></checker-extension></div>
+              <div class="col-md-3 col-sm-3 col-xs-12">
+                <div class="call-to-action">
+                  <button onclick="callCHATGPT()" autocomplete="off" class="btn btn-large" href="#" style="background-color: #333; color: #f4f4f4; border-radius: 10px">
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>Click to
+                    <br>Answer</button></div>
+              </div>
+              <div class="col-md-9 col-sm-9 col-xs-12">
+                <div class="form-group">
+                  <label></label>
+                  <textarea class="form-control" id="chatgpt-response" placeholder="长途访问，请耐心等待回答 Ai生成它很快，但是由于网络问题我们需要等待，通常内容越长等待越久 如果长时间没反应请刷新页面重试" rows="26" resize="none" style="width: 150%;height: auto; margin: 0 auto; background-color: #f4f4f4; color: #333; border: 1px solid #ccc; border-radius: 10px; overflow: scroll;" readonly="true" spellcheck="false">正在思考！
+
+我要去旅游。</textarea>
+                <checker-extension class="_1KJtL" style="position:absolute;top:0px;left:0px;pointer-events:none;z-index:300;"><div style="position: absolute; top: 0px; left: 0px;"><div style="box-sizing: content-box; top: 20px; left: 15px; width: 740px; height: 774px; position: relative; pointer-events: none; overflow: hidden; border: 0px; border-radius: 0px; padding: 0px; margin: 0px;"><div style="top: 0px; left: 0px; position: absolute;"><div style="width: 1007px; height: 1670px;"></div></div><div class="xzmce_tip-button-warp" style="bottom: -3px;"><div class="xzmce_tip-button xzmce_count-button"><div class="xzmce_tip-button xzmce_metasota-button" style="width: 24px; height: 24px;"><div class="double-bounce2" style="opacity: 1;"> <img class="xzmce_tip-button_login_logo"></div></div></div></div></div></div></checker-extension></div>
+              </div>
+            </div>
+          </div>
+		</div>
+		<footer>
+			<div class="basic-footer gray-bg text-center ptb-90">
+				<div class="container">
+					<div class="footer-logo mb-30">
+						<h3><a href="http://pan.buretuzi.online/index.html">Open Ai 智能对话</a></h3>
+					</div>
+					<div class="copyright mt-20">
+						<!-- <p>chat-gpt/open ai 成品号 5元一个</p> -->
+						<!-- <p><a href="https://1.ksfaka.com/chatgtp.htm">https://1.ksfaka.com/chatgtp.htm</a></p> -->
+						<p>站长TG：<a href="https://t.me/pocxxx">@pocxxx</a></p>
+						<p>国外手机号接码：<a href="https://sms-activate.org/?ref=2461182">https://sms-activate.org</a></p>
+						<hr>
+						<hr>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+        <script src="./Ai - Chat_files/jquery-1.12.0.min.js.下载"></script>
+        <script src="./Ai - Chat_files/bootstrap.min.js.下载"></script>
+        <script src="./Ai - Chat_files/isotope.pkgd.min.js.下载"></script>
+        <script src="./Ai - Chat_files/imagesloaded.pkgd.min.js.下载"></script>
+        <script src="./Ai - Chat_files/jquery.magnific-popup.min.js.下载"></script>
+        <script src="./Ai - Chat_files/jquery.meanmenu.js.下载"></script>
+        <script src="./Ai - Chat_files/plugins.js.下载"></script>
+        <script src="./Ai - Chat_files/main.js.下载"></script>
+		<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?05df94d9887ea8acd5a75f70e8a6bb11";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+		</script>
+
+  
+
+
+</div></div><a id="scrollUp" href="http://pan.buretuzi.online/#top" style="position: fixed; z-index: 2147483647; display: none;"><i class="ion-chevron-up"></i></a></body><div style="all: initial;"><div id="__hcfy__" style="all: initial;"></div></div><editor-card style="position:absolute;top:0px;left:0px;z-index:auto;display: block !important"><div dir="auto" style="all: initial;"><div style="color: initial; font: initial; font-feature-settings: initial; font-kerning: initial; font-optical-sizing: initial; font-synthesis: initial; font-variation-settings: initial; forced-color-adjust: initial; text-orientation: initial; text-rendering: initial; -webkit-font-smoothing: initial; -webkit-locale: initial; -webkit-text-orientation: initial; -webkit-writing-mode: initial; writing-mode: initial; zoom: initial; accent-color: initial; place-content: initial; place-items: initial; place-self: initial; alignment-baseline: initial; animation: initial; app-region: initial; appearance: initial; aspect-ratio: initial; backdrop-filter: initial; backface-visibility: initial; background: initial; background-blend-mode: initial; baseline-shift: initial; block-size: initial; border-block: initial; border: initial; border-radius: initial; border-collapse: initial; border-end-end-radius: initial; border-end-start-radius: initial; border-inline: initial; border-start-end-radius: initial; border-start-start-radius: initial; bottom: 0px; box-shadow: initial; box-sizing: initial; break-after: initial; break-before: initial; break-inside: initial; buffered-rendering: initial; caption-side: initial; caret-color: initial; clear: initial; clip: initial; clip-path: initial; clip-rule: initial; color-interpolation: initial; color-interpolation-filters: initial; color-rendering: initial; color-scheme: initial; columns: initial; column-fill: initial; gap: initial; column-rule: initial; column-span: initial; contain: initial; contain-intrinsic-block-size: initial; contain-intrinsic-size: initial; contain-intrinsic-inline-size: initial; content: initial; content-visibility: initial; counter-increment: initial; counter-reset: initial; counter-set: initial; cursor: initial; cx: initial; cy: initial; d: initial; display: flex; dominant-baseline: initial; empty-cells: initial; fill: initial; fill-opacity: initial; fill-rule: initial; filter: initial; flex: initial; flex-flow: column-reverse; float: initial; flood-color: initial; flood-opacity: initial; grid: initial; grid-area: initial; height: initial; hyphens: initial; image-orientation: initial; image-rendering: initial; inline-size: initial; inset-block: initial; inset-inline: initial; isolation: initial; left: initial; letter-spacing: initial; lighting-color: initial; line-break: initial; list-style: initial; margin-block: initial; margin: 1em; margin-inline: initial; marker: initial; mask: initial; mask-type: initial; max-block-size: initial; max-height: initial; max-inline-size: initial; max-width: initial; min-block-size: initial; min-height: initial; min-inline-size: initial; min-width: initial; mix-blend-mode: initial; object-fit: initial; object-position: initial; offset: initial; opacity: initial; order: initial; origin-trial-test-property: initial; orphans: initial; outline: initial; outline-offset: initial; overflow-anchor: initial; overflow-clip-margin: initial; overflow-wrap: initial; overflow: initial; overscroll-behavior-block: initial; overscroll-behavior-inline: initial; overscroll-behavior: initial; padding-block: initial; padding: initial; padding-inline: initial; page: initial; page-orientation: initial; paint-order: initial; perspective: initial; perspective-origin: initial; pointer-events: initial; position: fixed; quotes: initial; r: initial; resize: initial; right: 0px; ruby-position: initial; rx: initial; ry: initial; scroll-behavior: initial; scroll-margin-block: initial; scroll-margin: initial; scroll-margin-inline: initial; scroll-padding-block: initial; scroll-padding: initial; scroll-padding-inline: initial; scroll-snap-align: initial; scroll-snap-stop: initial; scroll-snap-type: initial; scrollbar-gutter: initial; shape-image-threshold: initial; shape-margin: initial; shape-outside: initial; shape-rendering: initial; size: initial; speak: initial; stop-color: initial; stop-opacity: initial; stroke: initial; stroke-dasharray: initial; stroke-dashoffset: initial; stroke-linecap: initial; stroke-linejoin: initial; stroke-miterlimit: initial; stroke-opacity: initial; stroke-width: initial; tab-size: initial; table-layout: initial; text-align: initial; text-align-last: initial; text-anchor: initial; text-combine-upright: initial; text-decoration: initial; text-decoration-skip-ink: initial; text-emphasis: initial; text-emphasis-position: initial; text-indent: initial; text-overflow: initial; text-shadow: initial; text-size-adjust: initial; text-transform: initial; text-underline-offset: initial; text-underline-position: initial; top: initial; touch-action: initial; transform: initial; transform-box: initial; transform-origin: initial; transform-style: initial; transition: initial; user-select: initial; vector-effect: initial; vertical-align: initial; visibility: initial; border-spacing: initial; -webkit-border-image: initial; -webkit-box-align: initial; -webkit-box-decoration-break: initial; -webkit-box-direction: initial; -webkit-box-flex: initial; -webkit-box-ordinal-group: initial; -webkit-box-orient: initial; -webkit-box-pack: initial; -webkit-box-reflect: initial; -webkit-highlight: initial; -webkit-hyphenate-character: initial; -webkit-line-break: initial; -webkit-line-clamp: initial; -webkit-mask-box-image: initial; -webkit-mask: initial; -webkit-mask-composite: initial; -webkit-perspective-origin-x: initial; -webkit-perspective-origin-y: initial; -webkit-print-color-adjust: initial; -webkit-rtl-ordering: initial; -webkit-ruby-position: initial; -webkit-tap-highlight-color: initial; -webkit-text-combine: initial; -webkit-text-decorations-in-effect: initial; -webkit-text-fill-color: initial; -webkit-text-security: initial; -webkit-text-stroke: initial; -webkit-transform-origin-x: initial; -webkit-transform-origin-y: initial; -webkit-transform-origin-z: initial; -webkit-user-drag: initial; -webkit-user-modify: initial; white-space: initial; widows: initial; width: initial; will-change: initial; word-break: initial; word-spacing: initial; x: initial; y: initial; z-index: 2147483647;"></div><div style="color: initial; font: initial; font-feature-settings: initial; font-kerning: initial; font-optical-sizing: initial; font-synthesis: initial; font-variation-settings: initial; forced-color-adjust: initial; text-orientation: initial; text-rendering: initial; -webkit-font-smoothing: initial; -webkit-locale: initial; -webkit-text-orientation: initial; -webkit-writing-mode: initial; writing-mode: initial; zoom: initial; accent-color: initial; place-content: initial; place-items: initial; place-self: initial; alignment-baseline: initial; animation: initial; app-region: initial; appearance: initial; aspect-ratio: initial; backdrop-filter: initial; backface-visibility: initial; background: initial; background-blend-mode: initial; baseline-shift: initial; block-size: initial; border-block: initial; border: initial; border-radius: initial; border-collapse: initial; border-end-end-radius: initial; border-end-start-radius: initial; border-inline: initial; border-start-end-radius: initial; border-start-start-radius: initial; inset: initial; box-shadow: initial; box-sizing: initial; break-after: initial; break-before: initial; break-inside: initial; buffered-rendering: initial; caption-side: initial; caret-color: initial; clear: initial; clip: initial; clip-path: initial; clip-rule: initial; color-interpolation: initial; color-interpolation-filters: initial; color-rendering: initial; color-scheme: initial; columns: initial; column-fill: initial; gap: initial; column-rule: initial; column-span: initial; contain: initial; contain-intrinsic-block-size: initial; contain-intrinsic-size: initial; contain-intrinsic-inline-size: initial; content: initial; content-visibility: initial; counter-increment: initial; counter-reset: initial; counter-set: initial; cursor: initial; cx: initial; cy: initial; d: initial; display: initial; dominant-baseline: initial; empty-cells: initial; fill: initial; fill-opacity: initial; fill-rule: initial; filter: initial; flex: initial; flex-flow: initial; float: initial; flood-color: initial; flood-opacity: initial; grid: initial; grid-area: initial; height: initial; hyphens: initial; image-orientation: initial; image-rendering: initial; inline-size: initial; inset-block: initial; inset-inline: initial; isolation: initial; letter-spacing: initial; lighting-color: initial; line-break: initial; list-style: initial; margin-block: initial; margin: initial; margin-inline: initial; marker: initial; mask: initial; mask-type: initial; max-block-size: initial; max-height: initial; max-inline-size: initial; max-width: initial; min-block-size: initial; min-height: initial; min-inline-size: initial; min-width: initial; mix-blend-mode: initial; object-fit: initial; object-position: initial; offset: initial; opacity: initial; order: initial; origin-trial-test-property: initial; orphans: initial; outline: initial; outline-offset: initial; overflow-anchor: initial; overflow-clip-margin: initial; overflow-wrap: initial; overflow: initial; overscroll-behavior-block: initial; overscroll-behavior-inline: initial; overscroll-behavior: initial; padding-block: initial; padding: initial; padding-inline: initial; page: initial; page-orientation: initial; paint-order: initial; perspective: initial; perspective-origin: initial; pointer-events: initial; position: absolute; quotes: initial; r: initial; resize: initial; ruby-position: initial; rx: initial; ry: initial; scroll-behavior: initial; scroll-margin-block: initial; scroll-margin: initial; scroll-margin-inline: initial; scroll-padding-block: initial; scroll-padding: initial; scroll-padding-inline: initial; scroll-snap-align: initial; scroll-snap-stop: initial; scroll-snap-type: initial; scrollbar-gutter: initial; shape-image-threshold: initial; shape-margin: initial; shape-outside: initial; shape-rendering: initial; size: initial; speak: initial; stop-color: initial; stop-opacity: initial; stroke: initial; stroke-dasharray: initial; stroke-dashoffset: initial; stroke-linecap: initial; stroke-linejoin: initial; stroke-miterlimit: initial; stroke-opacity: initial; stroke-width: initial; tab-size: initial; table-layout: initial; text-align: initial; text-align-last: initial; text-anchor: initial; text-combine-upright: initial; text-decoration: initial; text-decoration-skip-ink: initial; text-emphasis: initial; text-emphasis-position: initial; text-indent: initial; text-overflow: initial; text-shadow: initial; text-size-adjust: initial; text-transform: initial; text-underline-offset: initial; text-underline-position: initial; touch-action: initial; transform: initial; transform-box: initial; transform-origin: initial; transform-style: initial; transition: initial; user-select: initial; vector-effect: initial; vertical-align: initial; visibility: initial; border-spacing: initial; -webkit-border-image: initial; -webkit-box-align: initial; -webkit-box-decoration-break: initial; -webkit-box-direction: initial; -webkit-box-flex: initial; -webkit-box-ordinal-group: initial; -webkit-box-orient: initial; -webkit-box-pack: initial; -webkit-box-reflect: initial; -webkit-highlight: initial; -webkit-hyphenate-character: initial; -webkit-line-break: initial; -webkit-line-clamp: initial; -webkit-mask-box-image: initial; -webkit-mask: initial; -webkit-mask-composite: initial; -webkit-perspective-origin-x: initial; -webkit-perspective-origin-y: initial; -webkit-print-color-adjust: initial; -webkit-rtl-ordering: initial; -webkit-ruby-position: initial; -webkit-tap-highlight-color: initial; -webkit-text-combine: initial; -webkit-text-decorations-in-effect: initial; -webkit-text-fill-color: initial; -webkit-text-security: initial; -webkit-text-stroke: initial; -webkit-transform-origin-x: initial; -webkit-transform-origin-y: initial; -webkit-transform-origin-z: initial; -webkit-user-drag: initial; -webkit-user-modify: initial; white-space: initial; widows: initial; width: initial; will-change: initial; word-break: initial; word-spacing: initial; x: initial; y: initial; z-index: 2147483647;"><link rel="stylesheet" href="chrome-extension://gpaiobkfhnonedkhhfjpmhdalgeoebfa/fonts/fabric-icons.css"><div style="all: initial;"></div></div></div></editor-card><div style="pointer-events: none; visibility: hidden; position: absolute; box-sizing: border-box; top: 351.375px; left: 33.5px; width: 941.625px; padding: 6px 12px; border: 1px solid black; line-height: 20px; font-size: 14px; font-family: &quot;Open Sans&quot;, sans-serif;">你从哪里来</div></html>
